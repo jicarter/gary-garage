@@ -1,11 +1,20 @@
 using System;
 
-public class Zero : Vehicle   // Electric motorcycle
+namespace GaryGarage
 {
-    public double BatteryKWh { get; set; }
-
-    public void ChargeBattery()
+    public class Zero : Vehicle, IElectricVehicle
     {
-        // method definition omitted
+        public double BatteryKWh { get; set; }
+
+        public double CurrentChargePercentage { get; set; }
+        public void ChargeBattery()
+        {
+            CurrentChargePercentage = 100;
+        }
+
+        public override void Drive()
+        {
+            Console.WriteLine($"The {this.MainColor} Zero zips by you, zzzzooooooooooommmmmm!");
+        }
     }
 }

@@ -1,11 +1,19 @@
 using System;
 
-public class Ram : Vehicle  // Gas powered truck
+namespace GaryGarage
 {
-    public double FuelCapacity { get; set; }
-
-    public void RefuelTank()
+    public class Ram : Vehicle, IGasVehicles
     {
-        // method definition omitted
+        public double FuelCapacity { get; set; }
+        public double CurrentTankPercentage { get; set; }
+        public void RefuelTank()
+        {
+            CurrentTankPercentage = 100;
+        }
+
+        public override void Drive()
+        {
+            Console.WriteLine($"The {this.MainColor} Ram growls by you, RRrrrrrummbbble!");
+        }
     }
 }
